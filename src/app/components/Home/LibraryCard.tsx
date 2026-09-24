@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FiClock, FiStar } from "react-icons/fi";
 import { FaFire } from "react-icons/fa";
 import React from "react";
+import Link from "next/link";
 
 const LibraryCard = ({ workout }: { workout: WorkoutTypeProps }) => {
   const {
@@ -16,7 +17,8 @@ const LibraryCard = ({ workout }: { workout: WorkoutTypeProps }) => {
   } = workout;
   return (
     <>
-      <div>
+      <Link href={`/library/${workout.id}`}>
+        
         <div className=" rounded-2xl bg-[#15171e] p-3 text-white">
           <Image
             src={image}
@@ -56,7 +58,7 @@ const LibraryCard = ({ workout }: { workout: WorkoutTypeProps }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };
