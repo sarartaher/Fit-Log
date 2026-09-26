@@ -3,6 +3,7 @@ import { WorkoutTypeProps } from "@/types/WorkoutTypeProps";
 import { FiCalendar, FiBookmark } from "react-icons/fi";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import DetailButtons from "@/app/components/Library/DetailButton";
 
 const getWorkout = async (id: string): Promise<WorkoutTypeProps | null> => {
   try {
@@ -62,7 +63,7 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
       <div className=" container mx-auto">
         <div className="min-h-screen bg-[#0d0e12] px-6 py-12 text-white flex justify-center items-center ">
           <div className="mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-[#14151b]">
+            <div className="relative aspect-square w-full h-full overflow-hidden rounded-3xl bg-[#14151b]">
               <Image
                 src={image}
                 alt={name}
@@ -125,17 +126,7 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
                 </div>
               )}
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button className="flex items-center gap-2 rounded-xl bg-[#ccff00] px-5 py-3 text-xs font-bold text-black transition hover:bg-[#b8e600]">
-                  <FiCalendar className="text-sm stroke-[2.5]" />
-                  Add to today&apos;s plan
-                </button>
-
-                <button className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-[#151720] px-5 py-3 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800">
-                  <FiBookmark className="text-sm" />
-                  Save for later
-                </button>
-              </div>
+              <DetailButtons workout={workout}/>
             </div>
           </div>
         </div>
