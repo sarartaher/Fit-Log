@@ -1,6 +1,6 @@
 "use client";
 import { WorkoutTypeProps } from "@/types/WorkoutTypeProps";
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import { toast } from "react-toastify";
 
 interface ContextType {
@@ -21,6 +21,21 @@ const WorkoutContextProvider = ({
 }) => {
   const [plan, setPlan] = useState<WorkoutTypeProps[]>([]);
   const [saved, setSaved] = useState<WorkoutTypeProps[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setPlan(JSON.parse(localStorage.getItem("plan") || "[]"));
+    setSaved(JSON.parse(localStorage.getItem("saved") || "[]"));
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (loaded) localStorage.setItem("plan", JSON.stringify(plan));
+  }, [plan, loaded]);
+
+  useEffect(() => {
+    if (loaded) localStorage.setItem("saved", JSON.stringify(saved));
+  }, [saved, loaded]);
 
   const addToPlan = (workout: WorkoutTypeProps) => {
     if (plan.length >= 5) {

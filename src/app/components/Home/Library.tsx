@@ -17,7 +17,7 @@ const Library = async () => {
     return (
         <>
         
-        <div className='container mx-auto my-18'>
+        <div className='container mx-auto my-18 id="library"'>
         <h1 className='text-4xl font-semibold uppercase mb-2'>The Library</h1>
         <p className='mb-5 font-semibold text-gray-400'>Twelve lifts covering every major muscle group.</p>
             

@@ -16,7 +16,6 @@ const Hero = () => {
               height={400}
             />
             <div className="flex-col ">
-
               <h1 className="text-5xl font-bold text-center md:text-left">
                 TRAIN WITH INTENT. LOG EVERY SET.
               </h1>
@@ -24,9 +23,12 @@ const Hero = () => {
                 FitLog is a dark, no-nonsense gym companion: pick a lift, lock
                 it <br /> into today's plan, and watch the week's work add up.
               </p>
-              <button className="btn bg-[#CBF60C] text-black rounded-md border-none ">
+              <a
+                href="#library"
+                className="btn bg-[#CBF60C] text-black rounded-md border-none "
+              >
                 Browse Workout
-              </button>
+              </a>
             </div>
           </div>
         </div>
