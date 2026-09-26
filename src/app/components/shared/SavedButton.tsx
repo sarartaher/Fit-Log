@@ -10,7 +10,7 @@ const SavedButton = () => {
   return (
     <Link
       href="/myPlan"
-      className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-[#15171f] px-4 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800"
+      className="flex items-center gap-2 rounded-xl border border-1 border-zinc-800  px-4 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800"
     >
       <FiBookmark className="text-sm" />
       <span>Saved</span>

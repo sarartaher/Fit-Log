@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { WorkoutContext } from "@/context/WorkoutContextProvider";
 import Link from "next/link";
 import { FiCalendar } from "react-icons/fi";
@@ -10,11 +10,11 @@ const PlanButton = () => {
   return (
     <Link
       href="/myPlan"
-      className="flex items-center gap-2 rounded-xl bg-[#ccff00] px-4 py-2 text-xs font-bold text-black transition hover:bg-[#b8e600]"
+      className="flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold text-white transition hover:bg-[#404333]"
     >
       <FiCalendar className="text-sm stroke-[2.5]" />
       <span>Plan</span>
-      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[10px] font-black text-[#ccff00]">
+      <span className="flex h-5 w-5 items-center justify-center rounded-full text-black text-[10px] font-black bg-[#ccff00]">
         {count}
       </span>
     </Link>
