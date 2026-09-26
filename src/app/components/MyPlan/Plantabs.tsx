@@ -26,11 +26,12 @@ const Plantabs = ({ activeTab, setActiveTab }: PlantabsProps) => {
   let sortedList = [...list];
   if (sortBy === "duration") {
     sortedList.sort((a, b) => (b.duration || 0) - (a.duration || 0));
-  }
-  if (sortBy === "calories") {
+  } else if (sortBy === "calories") {
     sortedList.sort(
       (a, b) => (b.caloriesBurned || 0) - (a.caloriesBurned || 0),
     );
+  } else if (sortBy === "rating") {
+    sortedList.sort((a, b) => (b.rating || 0) - (a.rating || 0));
   }
 
   return (
@@ -72,6 +73,7 @@ const Plantabs = ({ activeTab, setActiveTab }: PlantabsProps) => {
             >
               <option value="duration">Duration</option>
               <option value="calories">Calories</option>
+              <option value="rating">Rating</option>
             </select>
             <FiChevronDown className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 text-xs" />
           </div>

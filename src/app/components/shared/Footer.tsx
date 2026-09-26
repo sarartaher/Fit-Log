@@ -12,8 +12,7 @@ const Footer = () => {
           </aside>
           <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
             <p>
-              ©{new Date().getFullYear()} FitLog — Workout Library. Train hard,
-              log honest
+              © 2026 FitLog — Workout Library. Train hard, log honest.
             </p>
           </nav>
         </footer>
