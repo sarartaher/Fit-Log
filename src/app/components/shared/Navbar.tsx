@@ -4,21 +4,30 @@ import React from "react";
 import Logo from "../../../assets/logo.png";
 import PlanButton from "./PlanButton";
 import SavedButton from "./SavedButton";
-const links = (
-  <>
-    <li>
-      <Link href={"/"} className="font-semibold hover:text-[#CBF60C] text-lg">
-        Workouts
-      </Link>
-    </li>
-    <li>
-      <Link href={"/myPlan"} className="font-semibold hover:text-[#CBF60C] text-lg">
-        My Plan
-      </Link>
-    </li>
-  </>
-);
+import { usePathname } from "next/navigation";
+
 const Navbar = () => {
+  const pathname = usePathname();
+  const links = (
+    <>
+      <li>
+        <Link
+          href={"/"}
+          className={`font-semibold text-lg ${pathname === "/" ? "text-[#CBF60C]" : "hover:text-[#CBF60C]"}`}
+        >
+          Workout
+        </Link>
+      </li>
+      <li>
+        <Link
+          href={"/myPlan"}
+          className={`font-semibold text-lg ${pathname === "/myPlan" ? "text-[#CBF60C]" : "hover:text-[#CBF60C]"}`}
+        >
+          My Plan
+        </Link>
+      </li>
+    </>
+  );
   return (
     <>
       <div className="bg-base-[#0C0D10] shadow-md">
