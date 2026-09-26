@@ -1,19 +1,44 @@
-import React from 'react';
+"use client";
+import { WorkoutTypeProps } from "@/types/WorkoutTypeProps";
+import React, { useState } from "react";
+import { createContext } from "react";
 
-const getAll = async()=> {
-    const response = await fetch("https://api.abcz.workers.dev/api/fitlog");
-    const data = await response.json();
-    return data;
+interface ContextType {
+  plan: WorkoutTypeProps[];
+  saved: WorkoutTypeProps[];
+  addToPlan: (workout: WorkoutTypeProps) => void;
+  addToSaved: (workout: WorkoutTypeProps) => void;
 }
+const WorkoutContext = createContext<ContextType | null>(null);
 
+const WorkoutContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [plan, setPlan] = useState<WorkoutTypeProps[]>([]);
+  const [saved, setSaved] = useState<WorkoutTypeProps[]>([]);
 
+  const addToPlan = (workout: WorkoutTypeProps) => {
+    if (!plan.some((work) => work.id === workout.id)) {
+      setPlan([...plan, workout]);
+    }
+  };
 
-const WorkoutContextProvider = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  const addToSaved = (workout: WorkoutTypeProps) => {
+    if (!saved.find((work) => work.id === workout.id)) {
+      setSaved([...saved, workout]);
+    }
+  };
+  const func = {
+    plan,
+    saved,
+    addToPlan,
+    addToSaved,
+  };
+  return (
+    <WorkoutContext.Provider value={func}>{children}</WorkoutContext.Provider>
+  );
 };
 
 export default WorkoutContextProvider;

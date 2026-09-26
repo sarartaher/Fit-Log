@@ -62,8 +62,7 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
       <div className=" container mx-auto">
         <div className="min-h-screen bg-[#0d0e12] px-6 py-12 text-white flex justify-center items-center ">
           <div className="mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            
-            <div className="relative aspect-square w-full h-full overflow-hidden rounded-3xl bg-[#14151b]">
+            <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-[#14151b]">
               <Image
                 src={image}
                 alt={name}
@@ -73,7 +72,6 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
               />
             </div>
 
-            
             <div className="flex flex-col">
               <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
                 {name}
@@ -95,7 +93,6 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
                 ))}
               </div>
 
-            
               <div className="mt-6 rounded-2xl bg-[#151720] p-5 divide-y divide-zinc-800/80">
                 {specs.map((item) => (
                   <div
@@ -112,7 +109,6 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
                 ))}
               </div>
 
-              
               {instructions.length > 0 && (
                 <div className="mt-8">
                   <h3 className="text-xs font-black uppercase tracking-widest text-white">
@@ -129,7 +125,6 @@ const WorkoutDetails = async ({ params }: PararmsTypeProps) => {
                 </div>
               )}
 
-              
               <div className="mt-8 flex flex-wrap gap-3">
                 <button className="flex items-center gap-2 rounded-xl bg-[#ccff00] px-5 py-3 text-xs font-bold text-black transition hover:bg-[#b8e600]">
                   <FiCalendar className="text-sm stroke-[2.5]" />
